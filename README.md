@@ -28,3 +28,9 @@ José inicializou o repositório, mas recebe a mensagem de erro, pois os arquivo
 Questão 4-
 
 O time de desenvolvimento pode criar o arquivo de texto '.gitignore', adicionar nele o nome dos arquivos e/ou pastas que não serão geridos pelo git e no prompt do git adicionar e commitar o .gitignore.
+
+
+
+Questão 5- 
+
+José agora é o responsável por maximizar o valor do produto obtidos durante o Scrum, ele também agora é gestor do Product Backlog, ordenando as funcionalidades a serem trabalhadas e assegurando que a comunicação do Product Backlog seja compreendida de maneira transparente, além de comunicar e desenvolver os objetivos do produto.
