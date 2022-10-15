@@ -40,3 +40,13 @@ José agora é o responsável por maximizar o valor do produto obtidos durante o
 Questão 6-
 
 No programa o usuário deverá informar seu nome e após isso, deve responder 5 questões de conhecimento geral com um número de 1 a 5 que corresponde a cada alternativa, as respostas corretas para cada alternativa são respectivamente "4, 1, 3, 3 e 5" e ao fim, o programa informa o nome do usuário, o número de acertos e o número de erros.
+
+
+
+Questão 7- 
+
+No programa o usuario devera informar seu nome.sobrenome a partir da lista:
+
+("fabiane.maciel", "diego.scacinate", "thais.nicodemus", "luara.oliveira", "guilherme.paiva", "alvaro.oliveira", "juliane.maran", "mateus.silveira", "andrey.coradin", "tulio.maia", "bruno.seixas", "jonatas.bezerra", "lucas.peixoto", "nalbert.santos", "rafael.queiroz", "david.gieseler", "giovani.lima", "joao.petter", "lenya.ferreira", "luis.gustavo", "michael.santos", "solano.kruger", "theodoro.ferreira", "tiago.dornelles", "vinicius.fuhrmann", "vinicius.aguiar")
+
+e a senha padrão "12345678". Se o login e senha estiverem corretos ele receberá uma mensagem a depender do horario do dia, se um dos dois ou os dois estiverem incorretos ele receberá a mensagem "Usuário e/ou senha incorretos."
