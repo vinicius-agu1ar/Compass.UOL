@@ -45,8 +45,10 @@ No programa o usuário deverá informar seu nome e após isso, deve responder 5 
 
 Questão 7- 
 
-No programa o usuario devera informar seu nome.sobrenome a partir da lista:
+No programa o usuario devera informar seu nome.sobrenome a partir da lista: ("fabiane.maciel", "diego.scacinate", "thais.nicodemus", "luara.oliveira", "guilherme.paiva", "alvaro.oliveira", "juliane.maran", "mateus.silveira", "andrey.coradin", "tulio.maia", "bruno.seixas", "jonatas.bezerra", "lucas.peixoto", "nalbert.santos", "rafael.queiroz", "david.gieseler", "giovani.lima", "joao.petter", "lenya.ferreira", "luis.gustavo", "michael.santos", "solano.kruger", "theodoro.ferreira", "tiago.dornelles", "vinicius.fuhrmann", "vinicius.aguiar") e a senha padrão "12345678". Se o login e senha estiverem corretos ele receberá uma mensagem a depender do horario do dia, se um dos dois ou os dois estiverem incorretos ele receberá a mensagem "Usuário e/ou senha incorretos.".
 
-("fabiane.maciel", "diego.scacinate", "thais.nicodemus", "luara.oliveira", "guilherme.paiva", "alvaro.oliveira", "juliane.maran", "mateus.silveira", "andrey.coradin", "tulio.maia", "bruno.seixas", "jonatas.bezerra", "lucas.peixoto", "nalbert.santos", "rafael.queiroz", "david.gieseler", "giovani.lima", "joao.petter", "lenya.ferreira", "luis.gustavo", "michael.santos", "solano.kruger", "theodoro.ferreira", "tiago.dornelles", "vinicius.fuhrmann", "vinicius.aguiar")
 
-e a senha padrão "12345678". Se o login e senha estiverem corretos ele receberá uma mensagem a depender do horario do dia, se um dos dois ou os dois estiverem incorretos ele receberá a mensagem "Usuário e/ou senha incorretos."
+
+Questão 8-
+
+No programa o usuario deve informar quantos funcionarios serão cadastrados, depois inserir o nome do primeiro funcionario e o salario dele (de preferencia no formato "0.0"), depois repetir o processo para a quantidade de funcionarios definidos. O programa envia como saída os nomes de cada funcionário, salário, bônus ou desconto e o salário líquido.
