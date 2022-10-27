@@ -1,6 +1,6 @@
 Questão 1- 
 
-No programa o usuario deverá se atentar ao login e senha do SQL contidos no arquivo ConnectionFactory.java, executar o arquivo questao1.produto.sql para criar o schema e a table necessarias para o programa. 
+No programa o usuario deverá se atentar ao login e senha do SQL contidos no arquivo ConnectionFactory.java, aos Referenced Libraries necessarios (mysql-connector-j, c3p0 e mchange-commons-java) e a executar o arquivo questao1.produto.sql para criar o schema e a table necessarias para o programa. 
 
 Durante o programa o usuario deverá escolher entre 4 numeros. 
 
