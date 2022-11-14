@@ -12,10 +12,16 @@ PUT - /api/states/{id}
 
 DELETE - /api/states/{id}
 
-O campo região aceita apenas os valores 'Norte', 'Nordeste' 'Centro-Oeste', 'Sudeste' e 'Sul'. 
+O campo região aceita apenas os valores "Norte", "Nordeste" "Centro-Oeste", "Sudeste" e "Sul". 
 
 Para filtrar os resultados por região deve-se utilizar o metodo - /api/states?nomeRegiao= e o nome da região indicada acima.
 
 Para ordenar os estados por maior população /api/states?sort=populacao,desc
 
 Para ordenar os estador por maior area /api/states?sort=area,desc
+
+
+
+Questão 2-
+
+Documentação do programa criado no Swagger em formato .yaml salvo na pasta "resources" dentro do programa e isolado em formato .json e .yaml na pasta "Questao2"
