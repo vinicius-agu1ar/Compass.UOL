@@ -1,0 +1,261 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "API Estados",
+    "description": "API para gerir estados do Brasil.",
+    "version": "0.0.1",
+    "termsOfService": "https://github.com/vinicius-agu1ar/Compass.UOL/blob/main/Avaliacao-3/README.md",
+    "contact": {
+      "name": "Suporte",
+      "email": "vinicius.aguiar.pb@compasso.com.br",
+      "url": "https://github.com/vinicius-agu1ar/Compass.UOL"
+    },
+    "license": {
+      "name": "GPLv3",
+      "url": "https://gnu.org/licenses/gpl-3.0.html"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:{port}",
+      "description": "API dos estados",
+      "variables": {
+        "port": {
+          "default": "8080"
+        }
+      }
+    }
+  ],
+  "paths": {
+    "/api/states": {
+      "get": {
+        "summary": "Lista todos os estados",
+        "parameters": [
+          {
+            "name": "nomeRegiao",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "required": false
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "required": false
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/parametroID"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Cria novos estados",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/parametros"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/parametroID"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/states/{id}": {
+      "get": {
+        "summary": "Recupera um estado pelo ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/parametroID"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Valor não encontrado",
+            "content": {
+              "application/json": {
+                "example": "Not Found"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Edita um estado pelo ID",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/parametros"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/parametroID"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Valor não encontrado",
+            "content": {
+              "application/json": {
+                "example": "Not Found"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deleta um estado pelo ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "example": "{}"
+              }
+            }
+          },
+          "404": {
+            "description": "Valor não encontrado",
+            "content": {
+              "application/json": {
+                "example": "Not Found"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "parametroID": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "nome": {
+            "type": "string"
+          },
+          "regiao": {
+            "type": "string"
+          },
+          "populacao": {
+            "type": "number"
+          },
+          "capital": {
+            "type": "string"
+          },
+          "area": {
+            "type": "number"
+          }
+        }
+      },
+      "parametros": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string"
+          },
+          "regiao": {
+            "type": "string"
+          },
+          "populacao": {
+            "type": "number"
+          },
+          "capital": {
+            "type": "string"
+          },
+          "area": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+}
