@@ -30,6 +30,9 @@
     "/api/states": {
       "get": {
         "summary": "Lista todos os estados",
+        "tags": [
+          "Estados"
+        ],
         "parameters": [
           {
             "name": "nomeRegiao",
@@ -79,6 +82,9 @@
       },
       "post": {
         "summary": "Cria novos estados",
+        "tags": [
+          "Estados"
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -105,6 +111,9 @@
     "/api/states/{id}": {
       "get": {
         "summary": "Recupera um estado pelo ID",
+        "tags": [
+          "Estados"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -138,6 +147,9 @@
       },
       "put": {
         "summary": "Edita um estado pelo ID",
+        "tags": [
+          "Estados"
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -180,6 +192,9 @@
       },
       "delete": {
         "summary": "Deleta um estado pelo ID",
+        "tags": [
+          "Estados"
+        ],
         "parameters": [
           {
             "name": "id",
