@@ -132,7 +132,7 @@ public class AssociadoControllerTest {
         return AssociadoRequestDTO.builder()
                 .nome("Test")
                 .cargoPolitico(CargoPolitico.DEPUTADO_ESTADUAL)
-                .dataNascimento(LocalDate.of(1993, Month.MAY, 20))
+                .dataNascimento(LocalDate.parse("01-01-1991"))
                 .sexo(Sexo.FEMININO)
                 .build();
     }
