@@ -131,7 +131,7 @@ public class PartidoControllerTest {
                 .nome("Test")
                 .sigla("Sigla")
                 .ideologia(Ideologia.CENTRO)
-                .dataFundacao(LocalDateTime.now())
+                .dataFundacao(LocalDate.parse("18-03-1992"))
                 .build();
     }
 }
