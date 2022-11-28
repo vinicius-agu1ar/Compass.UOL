@@ -42,6 +42,7 @@ partido)
 o JSON de exemplo para criar um associado é:
 
 {
+
     "nome": "nomeAssociado",
     
     "cargoPolitico": "VEREADOR",
@@ -54,9 +55,10 @@ o JSON de exemplo para criar um associado é:
 e o exemplo para criar um partido é:
 
 {
+
     "nome": "nomePartido",
     
-    "silga": "sigla",
+    "sigla": "sigla",
     
     "ideologia": "CENTRO",
     
