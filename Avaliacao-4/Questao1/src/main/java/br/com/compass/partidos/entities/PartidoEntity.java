@@ -33,6 +33,10 @@ public class PartidoEntity {
 
     @Column(name = "FUNDACAO")
     private LocalDateTime dataFundacao;
-
     
+    @OneToMany (mappedBy = "partidoEntity",
+    cascade = CascadeType.ALL,
+    orphanRemoval = true)
+    private List<AssociadoEntity> associadoEntity;
+
 }
