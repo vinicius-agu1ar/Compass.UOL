@@ -35,4 +35,7 @@ public class AssociadoEntity {
     @Enumerated(EnumType.STRING)
     @Column(name = "SEXO")
     private Sexo sexo;
+    
+    @ManyToOne (fetch = FetchType.LAZY)
+    private PartidoEntity partidoEntity;
 }
