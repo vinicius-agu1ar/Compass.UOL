@@ -1,0 +1,456 @@
+openapi: 3.0.1
+info: 
+  title: API Partidos e Associados
+  description: API para gerir partidos e associados politicos.
+  version: 0.0.2
+  termsOfService: https://github.com/vinicius-agu1ar/Compass.UOL/blob/main/Avaliacao-4/README.md
+  contact:
+    name: Suporte
+    email: vinicius.aguiar.pb@compasso.com.br
+    url: https://github.com/vinicius-agu1ar/Compass.UOL
+  license:
+    name: GPLv3
+    url: https://gnu.org/licenses/gpl-3.0.html
+servers: 
+  - url: http://localhost:{port}
+    description: API dos partidos e associados
+    variables:
+      port:
+        default: '8080'
+paths:
+  /associados:
+    post:
+      tags:
+        - Associados
+      operationId: create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssociadoRequestDTO'
+        required: true
+      responses:
+        '201':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AssociadoStandardResponseDTO'
+    get:
+      tags:
+        - Associados
+      operationId: findAll
+      parameters:
+        - name: cargoPolitico
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - VEREADOR
+              - PREFEITO
+              - DEPUTADO_ESTADUAL
+              - DEPUTADO_FEDERAL
+              - SENADOR
+              - GOVERNADOR
+              - PRESIDENTE
+        - name: pageable
+          in: query
+          required: false
+          schema:
+            $ref: '#/components/schemas/Pageable'
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AssociadoResponseParameters'
+  /{idAssociado}/{idPartido}:
+    put:
+      tags:
+        - Associados
+      operationId: associate
+      parameters:
+        - name: idAssociado
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: idPartido
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '201':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AssociadoResponseDTO'
+  /associados/{id}:
+    get:
+      tags:
+        - Associados
+      operationId: findById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AssociadoStandardResponseDTO'
+    put:
+      tags:
+        - Associados
+      operationId: update
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssociadoRequestDTO'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AssociadoStandardResponseDTO'
+    delete:
+      tags:
+        - Associados
+      operationId: delete
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: NO CONTENT
+  /associados/{idAssociado}/partidos/{idPartido}:
+    delete: 
+      tags:
+        - Associados
+      operationId: diassociate
+      parameters:
+        - name: idPartido
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: idAssociado
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: NO CONTENT
+  /partidos:
+    post:
+      tags:
+        - Partidos
+      operationId: createPartido
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PartidoRequestDTO'
+        required: true
+      responses:
+        '201':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PartidoStandardResponseDTO'
+    get:
+      tags:
+        - Partidos
+      operationId: findAllPartidos
+      parameters:
+        - name: ideologia
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - DIREITA
+              - CENTRO
+              - ESQUERDA
+        - name: pageable
+          in: query
+          required: false
+          schema:
+            $ref: '#/components/schemas/Pageable'
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PartidoResponseParameters'
+  /partidos/{id}:
+    get:
+      tags:
+        - Partidos
+      operationId: findByIdPartido
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PartidoStandardResponseDTO'
+    put:
+      tags:
+        - Partidos
+      operationId: updatePartido
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PartidoRequestDTO'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PartidoStandardResponseDTO'
+    delete:
+      tags:
+        - Partidos
+      operationId: deletePartido
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: NO CONTENT
+  /partidos/{id}/associados:
+    get:
+      tags:
+        - Partidos
+      operationId: getAssociadosbyPartidosId
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PartidoResponseDTO'
+components:
+  schemas:
+    AssociadoRequestDTO:
+      required:
+        - nome
+        - cargoPolitico
+        - dataNascimento
+        - sexo
+      type: object
+      properties:
+        nome:
+          type: string
+        cargoPolitico:
+          type: string
+          enum:
+            - VEREADOR
+            - PREFEITO
+            - DEPUTADO_ESTADUAL
+            - DEPUTADO_FEDERAL
+            - SENADOR
+            - GOVERNADOR
+            - PRESIDENTE
+        dataNascimento:
+          type: string
+          format: date
+        sexo:
+          type: string
+          enum:
+            - MASCULINO
+            - FEMININO
+    AssociadoResponseDTO:
+      type: object
+      properties:
+        nome:
+          type: string
+        cargoPolitico:
+          type: string
+          enum:
+            - VEREADOR
+            - PREFEITO
+            - DEPUTADO_ESTADUAL
+            - DEPUTADO_FEDERAL
+            - SENADOR
+            - GOVERNADOR
+            - PRESIDENTE
+        dataNascimento:
+          type: string
+          format: date
+        sexo:
+          type: string
+          enum:
+            - MASCULINO
+            - FEMININO
+        partidoEntity: 
+          type: array
+          items:
+            $ref: '#/components/schemas/PartidoRequestDTO'
+    AssociadoStandardResponseDTO:
+      type: object
+      properties:
+        nome:
+          type: string
+        cargoPolitico:
+          type: string
+          enum:
+            - VEREADOR
+            - PREFEITO
+            - DEPUTADO_ESTADUAL
+            - DEPUTADO_FEDERAL
+            - SENADOR
+            - GOVERNADOR
+            - PRESIDENTE
+        dataNascimento:
+          type: string
+          format: date
+        sexo:
+          type: string
+          enum:
+            - MASCULINO
+            - FEMININO
+    Pageable:
+      type: object
+      properties:
+        page:
+          minimum: 0
+          type: integer
+        size:
+          minimum: 1
+          type: integer
+        sort:
+          type: array
+          items:
+            type: string
+    AssociadoResponseParameters:
+      type: object
+      properties:
+        numberOfElements:
+          type: integer
+        totalElements:
+          type: integer
+        totalPages:
+          type: integer
+        associados:
+          type: array
+          items:
+            $ref: '#/components/schemas/AssociadoResponseDTO'
+    PartidoRequestDTO:
+      required:
+        - nome
+        - sigla
+        - ideologia
+        - dataFundacao
+      type: object
+      properties:
+        nome:
+          type: string
+        sigla:
+          type: string
+        ideologia:
+          type: string
+          enum:
+            - DIREITA
+            - CENTRO
+            - ESQUERDA
+        dataFundacao:
+          type: string
+          format: date
+    PartidoResponseDTO:
+      type: object
+      properties:
+        nome:
+          type: string
+        sigla:
+          type: string
+        ideologia:
+          type: string
+          enum:
+            - DIREITA
+            - CENTRO
+            - ESQUERDA
+        dataFundacao:
+          type: string
+          format: date
+        associadoEnity: 
+          type: array
+          items:
+            $ref: '#/components/schemas/AssociadoRequestDTO'
+    PartidoStandardResponseDTO:
+      type: object
+      properties:
+        nome:
+          type: string
+        sigla:
+          type: string
+        ideologia:
+          type: string
+          enum:
+            - DIREITA
+            - CENTRO
+            - ESQUERDA
+        dataFundacao:
+          type: string
+          format: date
+    PartidoResponseParameters:
+      type: object
+      properties:
+        numberOfElements:
+          type: integer
+        totalElements:
+          type: integer
+        totalPages:
+          type: integer
+        partidos:
+          type: array
+          items:
+            $ref: '#/components/schemas/PartidoResponseDTO'
