@@ -2,7 +2,10 @@ Questão 1-
 
 ***QUESTÃO INCOMPLETA***
 
+***IMPLEMENTADOS***
+
 Ao executar o programa o usuario poderá para os associados:
+
 POST - /associados
 
 GET - /associados (Com opção de filtrar associados de acordo com
@@ -22,7 +25,10 @@ body: {“idAssociado”: 10, “idPartido”: 10})
 DELETE - /associados/{id}/partidos/{id} (Remove determinado
 associado daquele partido) 
 
+***IMPLEMENTADOS***
+
 E para os partidos:
+
 POST - /partidos
 
 GET - /partidos (Com a opção de filtrar partidos de acordo com sua
